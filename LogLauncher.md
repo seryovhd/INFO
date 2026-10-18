@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.0! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.1! 🚀
 ¡Gracias por confiar en Clezapp!
 Estás utilizando la versión PRO de nuestra plataforma. 🎯
 Con Clezapp PRO disfrutas de todas las funciones esenciales para organizar, gestionar y hacer crecer tu día a día.
@@ -16,6 +16,7 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🟩 Contraste en Navegación: Corrección de contraste del botón de colapso de menú en tema claro y oscuro, y botón hamburguesa blanco en tema claro.
     🟩 Traducciones del Sistema: Corrección e incorporación de etiquetas multilenguaje faltantes en español, inglés y portugués (tickets.buttons.hideAll, tickets.inbox.closedAllTickets).
     🟩 Copiar Número al Portapapeles: Se incorporó un botón e ícono interactivo junto al número de WhatsApp en la cabecera de chats, visor de tickets, drawer de contacto, tarjetas Kanban y vistas previas de contacto (VCard), permitiendo copiar el número con un solo clic y confirmación visual inmediata.
+    🟧 Edición de Usuarios y Contactos (Ubuntu/PostgreSQL): Corrección de validación de empresa en actualización de usuarios que provocaba rechazo por empresa inexistente; saneamiento y validación tolerante de números en edición de contactos sin depender de que WhatsApp esté activo; nueva migración de integridad 20261018150000 para asegurar la presencia de todas las columnas en Users y Contacts en servidores Ubuntu.
 
 ✨ NUEVAS FUNCIONES
 🔧 INGENIERÍA INVERSA
