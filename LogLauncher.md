@@ -15,6 +15,7 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🟩 Dashboard Contraste: Ajuste del color de fuente a blanco en las tarjetas del Dashboard para una óptima lectura.
     🟩 Contraste en Navegación: Corrección de contraste del botón de colapso de menú en tema claro y oscuro, y botón hamburguesa blanco en tema claro.
     🟩 Traducciones del Sistema: Corrección e incorporación de etiquetas multilenguaje faltantes en español, inglés y portugués (tickets.buttons.hideAll, tickets.inbox.closedAllTickets).
+    🟩 Copiar Número al Portapapeles: Se incorporó un botón e ícono interactivo junto al número de WhatsApp en la cabecera de chats, visor de tickets, drawer de contacto, tarjetas Kanban y vistas previas de contacto (VCard), permitiendo copiar el número con un solo clic y confirmación visual inmediata.
 
 ✨ NUEVAS FUNCIONES
 🔧 INGENIERÍA INVERSA
