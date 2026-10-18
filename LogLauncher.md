@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.6.6! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.6.9! 🚀
 ¡Gracias por confiar en Chasap!
 Estás utilizando la versión PRO de nuestra plataforma. 🎯
 
@@ -6,13 +6,20 @@ Con Chasap PRO disfrutas de todas las funciones esenciales para organizar, gesti
 Todo lo que necesitas para empezar, en un solo lugar. 🔥
 
 🐛 ERRORES REPORTADOS
-🟥 Ninguno
+🟩 Ninguno
 
 ✅ PARCHES APLICADOS
 🟥 Crítico 🟧 Alto 🟨 Normal 🟩 Bajo
+    🟨 Respuestas Rápidas (Búsqueda Exacta y Similitud): Implementación de coincidencia exacta que aísla el atajo (ej. /hola) para enviarlo o seleccionarlo de inmediato sin mostrar resultados irrelevantes; búsqueda inteligente por similitud para términos parciales.
+    🟨 Privacidad Multimedia: Se ocultó el nombre y extensión técnica del archivo en el chat del receptor al enviar archivos o documentos en WhatsApp.
+    🟩 Dashboard Scroll: Habilitación de desplazamiento vertical (scrollbar) en la vista general del Dashboard para poder navegar y visualizar todas las métricas inferiores.
+    🟩 Dashboard Contraste: Ajuste del color de fuente a blanco en las tarjetas del Dashboard para una óptima lectura.
+    🟩 Contraste en Navegación: Corrección de contraste del botón de colapso de menú en tema claro y oscuro, y botón hamburguesa blanco en tema claro.
+    🟩 Traducciones del Sistema: Corrección e incorporación de etiquetas multilenguaje faltantes en español, inglés y portugués (tickets.buttons.hideAll, tickets.inbox.closedAllTickets).
 
 ✨ NUEVAS FUNCIONES
 🔧 INGENIERÍA INVERSA
+    ⚡ Búsqueda y Selección Inteligente de Respuestas Rápidas: Coincidencias exactas aisladas y similitud por relevancia tanto en Modo Carrusel Tradicional como en Popup Flotante (estilo WhatsApp Web), con soporte para envío directo con Enter.
 
 1. Panel de Monitoreo
     📊 Gráficos en Tiempo Real: Visualización de las métricas más importantes de tu plataforma.
@@ -27,6 +34,7 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
 
 3. Funciones de Productividad
     🔍 Buscador Avanzado: Búsqueda inteligente en conversaciones con filtros avanzados.
+    💬 Respuestas Rápidas Mejoradas: Modo flotante interactivo y carrusel con filtrado por atajo exacto y similitud.
     🔄 Reenvío Masivo de Mensajes: Envía mensajes a múltiples contactos de forma rápida y eficiente.
     🧠 ChatIA: Asistente con IA para consultas rápidas y soporte en tiempo real.
     ⚙️ Configuración del Perfil: Gestión completa de la información personal.
