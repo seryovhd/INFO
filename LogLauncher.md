@@ -1,7 +1,6 @@
 🎉 ¡Bienvenido a Clezapp PRO 3.6.9! 🚀
 ¡Gracias por confiar en Clezapp!
 Estás utilizando la versión PRO de nuestra plataforma. 🎯
-
 Con Clezapp PRO disfrutas de todas las funciones esenciales para organizar, gestionar y hacer crecer tu día a día.
 Todo lo que necesitas para empezar, en un solo lugar. 🔥
 
