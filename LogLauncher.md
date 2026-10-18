@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.6.5! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.6.6! 🚀
 ¡Gracias por confiar en Chasap!
 Estás utilizando la versión PRO de nuestra plataforma. 🎯
 
