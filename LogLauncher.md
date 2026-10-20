@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.3! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.4! 🚀
 ¡Gracias por confiar en Clezapp!
 Estás utilizando la versión PRO de nuestra plataforma. 🎯
 Con Clezapp PRO disfrutas de todas las funciones esenciales para organizar, gestionar y hacer crecer tu día a día.
@@ -27,6 +27,7 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🟨 Estabilidad y Poda de Memoria en Evolution API: Implementación de poda automática de buffers y Sets en EvolutionMonitor para prevenir saturación de memoria RAM y caídas del proceso en el servidor.
     🟧 Índices Compuestos PostgreSQL en Messages: Nueva migración 20261019203000 que añade índices compuestos de alto rendimiento (idx_messages_company_ticket_createdAt, idx_messages_company_read, idx_messages_remoteJid), acelerando la carga y navegación de chats con miles de mensajes a menos de 10ms.
     🟥 Desconexión y Eliminación de Conexiones Baileys (Error 400 & Bad MAC): Corrección de la validación de empresa en ShowWhatsAppService y controladores que arrojaba error 400 al intentar desconectar o eliminar conexiones creadas con companyId nulo o gestionadas por SuperAdmin; reestructuración de removeWbot para expulsar inmediatamente de la memoria (sessions.splice) sesiones con llaves corruptas (Bad MAC) evitando bucles infinitos en PM2; y adición de limpieza previa en cascada en DeleteWhatsAppService (Baileys, BaileysChats, WhatsappQueue) para prevenir bloqueos por Foreign Key en PostgreSQL.
+    🟩 Envío Instantáneo de Mensajes (Optimistic UI): Optimización del flujo de chat (MessageInput y MessageInputCustom) para vaciar el campo de texto en 0ms apenas se presiona Enter o Enviar, permitiendo al operador seguir escribiendo el siguiente mensaje sin pausas ni bloqueos mientras el envío se procesa en segundo plano, con restauración automática en caso de corte de red; y eliminación de consultas redundantes a la base de datos en SendWhatsAppMessage.
 
 ✨ NUEVAS FUNCIONES
 🔧 INGENIERÍA INVERSA
@@ -36,6 +37,8 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🔴 Detección Inteligente de Contactos @lid: Alerta visual instantánea para identificar y gestionar contactos que aún no han compartido su número telefónico real.
     ⚡ Arquitectura Web de Carga Asíncrona (Code-Splitting): Carga perezosa de rutas y componentes secundarios para un inicio de sesión y apertura de aplicación ultrarrápida.
     🛡️ Monitor Proactivo Anti-Desconexión: Protocolos Keep-Alive y control de memoria integrados para garantizar estabilidad permanente en los motores de WhatsApp.
+    🚀 Envío Optimista Ultrarrápido (0ms): Vaciado instantáneo del campo de redacción al dar Enter, permitiendo redactar fluidamente múltiples mensajes continuos sin tiempos de espera.
+    🛡️ Purgado y Auto-Recuperación de Sesiones: Algoritmo de desvinculación forzada en caliente que expulsa llaves corruptas (Bad MAC) y registros huérfanos al desconectar o eliminar conexiones de WhatsApp.
 
 1. Panel de Monitoreo
     📊 Gráficos en Tiempo Real: Visualización de las métricas más importantes de tu plataforma.
