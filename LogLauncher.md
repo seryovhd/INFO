@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.1! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.2! 🚀
 ¡Gracias por confiar en Clezapp!
 Estás utilizando la versión PRO de nuestra plataforma. 🎯
 Con Clezapp PRO disfrutas de todas las funciones esenciales para organizar, gestionar y hacer crecer tu día a día.
@@ -17,10 +17,24 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🟩 Traducciones del Sistema: Corrección e incorporación de etiquetas multilenguaje faltantes en español, inglés y portugués (tickets.buttons.hideAll, tickets.inbox.closedAllTickets).
     🟩 Copiar Número al Portapapeles: Se incorporó un botón e ícono interactivo junto al número de WhatsApp en la cabecera de chats, visor de tickets, drawer de contacto, tarjetas Kanban y vistas previas de contacto (VCard), permitiendo copiar el número con un solo clic y confirmación visual inmediata.
     🟧 Edición de Usuarios y Contactos (Ubuntu/PostgreSQL): Corrección de validación de empresa en actualización de usuarios que provocaba rechazo por empresa inexistente; saneamiento y validación tolerante de números en edición de contactos sin depender de que WhatsApp esté activo; nueva migración de integridad 20261018150000 para asegurar la presencia de todas las columnas en Users y Contacts en servidores Ubuntu.
+    🟩 Contraste de Mensaje Privado (Tema Oscuro): Corrección de contraste en el campo de texto al activar el modo Privado; el texto escrito, el cursor y el marcador de posición ahora se muestran en color oscuro/negro sobre el fondo amarillo claro, garantizando una visibilidad óptima.
+    🟩 Visor Global de Foto de Perfil HD: Integración de visor interactivo en alta resolución en todas las miniaturas de contacto del sistema (Tickets en Atendiendo, Esperando, Atendidos, Buscador, Cabecera de Chat, Tabla de Contactos, Tablero Kanban y Tarjetas VCard), incluyendo aislamiento de clics (stopPropagation), descarga directa y sincronización HD con WhatsApp.
+    🟩 Destacado WhatsApp en Número de Cabecera (Badge / Pill): Implementación de cápsula distintiva en verde WhatsApp con contraste automático (verde bosque corporativo #008069 en tema claro y verde neón #25D366 con resplandor en tema oscuro) para priorizar la visibilidad inmediata del número del cliente.
+    🟨 Alerta Visual de Números @lid No Actualizados: La cápsula de número en la cabecera del chat cambia automáticamente a color rojo con ícono de advertencia (⚠️) y tooltip informativo cuando el contacto tiene un identificador provisional (@lid) pendiente de actualizar a su número telefónico real.
+    🟧 Aceleración Web y Code-Splitting: División modular del frontend mediante React.lazy y Suspense reduciendo el bundle inicial en un 36% (de 1.19 MB a 758 KB) con 40+ chunks bajo demanda, acelerando el arranque en conexiones móviles y de escritorio.
+    🟩 Caché Inmutable de Alto Rendimiento: Configuración de servidor express con compresión GZIP y cabeceras de caché inmutable (Cache-Control: public, max-age=31536000, immutable) para recursos estáticos con hash, garantizando navegación instantánea (< 0.5s) y cero saturación del VPS.
+    🟧 Blindaje de Conexión Baileys: Implementación de Keep-Alive proactivo cada 25 segundos, supresión de sincronización innecesaria de historial masivo (syncFullHistory: false) y filtrado de eventos ruidosos (@newsletter y @call) para conexiones 24/7 sin desconexiones intermitentes.
+    🟨 Estabilidad y Poda de Memoria en Evolution API: Implementación de poda automática de buffers y Sets en EvolutionMonitor para prevenir saturación de memoria RAM y caídas del proceso en el servidor.
+    🟧 Índices Compuestos PostgreSQL en Messages: Nueva migración 20261019203000 que añade índices compuestos de alto rendimiento (idx_messages_company_ticket_createdAt, idx_messages_company_read, idx_messages_remoteJid), acelerando la carga y navegación de chats con miles de mensajes a menos de 10ms.
 
 ✨ NUEVAS FUNCIONES
 🔧 INGENIERÍA INVERSA
     ⚡ Búsqueda y Selección Inteligente de Respuestas Rápidas: Coincidencias exactas aisladas y similitud por relevancia tanto en Modo Carrusel Tradicional como en Popup Flotante (estilo WhatsApp Web), con soporte para envío directo con Enter.
+    🖼️ Visor Lightbox HD de Fotos de Perfil: Previsualización interactiva de avatar en alta resolución con controles de descarga y visualización limpia sin seleccionar ni abrir tickets.
+    🟢 Cápsula Destacada de WhatsApp: Resaltado visual en verde WhatsApp corporativo en la cabecera de chat con botón de copiado rápido a un clic.
+    🔴 Detección Inteligente de Contactos @lid: Alerta visual instantánea para identificar y gestionar contactos que aún no han compartido su número telefónico real.
+    ⚡ Arquitectura Web de Carga Asíncrona (Code-Splitting): Carga perezosa de rutas y componentes secundarios para un inicio de sesión y apertura de aplicación ultrarrápida.
+    🛡️ Monitor Proactivo Anti-Desconexión: Protocolos Keep-Alive y control de memoria integrados para garantizar estabilidad permanente en los motores de WhatsApp.
 
 1. Panel de Monitoreo
     📊 Gráficos en Tiempo Real: Visualización de las métricas más importantes de tu plataforma.
