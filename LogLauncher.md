@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.7! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.9! 🚀
 ¡Gracias por confiar en Clezapp!
 Estás utilizando la versión PRO de nuestra plataforma. 🎯
 Con Clezapp PRO disfrutas de todas las funciones esenciales para organizar, gestionar y hacer crecer tu día a día.
@@ -35,6 +35,8 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🟩 Orden Cronológico Estricto de Mensajes (sortMessages): Implementación de comparador cronológico absoluto por createdAt ASC en todas las transiciones del reducer de mensajes (HYDRATE_CACHED, LOAD_MESSAGES, ADD_MESSAGE, UPDATE_MESSAGE); garantiza que mensajes antiguos nunca se intercalen ni aparezcan al final de la conversación bajo ninguna circunstancia.
     🟩 Anclaje Instantáneo al Fondo del Chat (0ms Scroll Snap): Desplazamiento inmediato al último mensaje (scrollTop = scrollHeight) al entrar o alternar entre conversaciones sin animaciones lentas que generen desfasajes visuales o dejen la vista a mitad de la conversación.
     🟨 Bloqueo de Paginación en Carga Inicial (isInitialLoad): Protección del detector de desplazamiento superior en MessagesList; previene la solicitud accidental de páginas previas durante la apertura del chat, activando la paginación de mensajes antiguos únicamente cuando el operador hace scroll intencional hacia arriba.
+    🟧 Visualización y Soporte de Stickers WhatsApp (Baileys y Evolution API): Corrección crítica en la descarga y guardado de stickers entrantes resolviendo el fallo de DNS de WhatsApp (a.whatsapp.net a mmg.whatsapp.net); integración de envío de stickers WebP vía endpoint nativo /message/sendSticker en Evolution API y buffer nativo en Baileys; ajuste de proporción a 200px × 200px con renderizado transparente (sin burbuja de chat ni bordes) y recuperación de stickers históricos corruptos.
+    🟨 Visor Multimedia Proporcional Unificado (Material-UI Dialog): Sustitución del visor invasivo de pantalla completa (react-modal-image) por un modal centrado con proporciones nativas (object-fit: contain, max 88vw x 82vh) y fondo desenfocado; acotamiento de videos y GIFs en burbujas de chat y mensajes citados a dimensiones controladas (max 320x240px) para evitar desbordes de pantalla en resoluciones altas.
 
 ✨ NUEVAS FUNCIONES
 🔧 INGENIERÍA INVERSA
@@ -50,6 +52,8 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     💎 Máxima Fluidez de Interfaz (60 FPS): Desacople de re-renders de tickets, carga perezosa de medios y scroll suave estilo WhatsApp Web.
     ⏱️ Cronología Absoluta de Chat: Blindaje de ordenamiento temporal que garantiza que el flujo de mensajes siempre respete su secuencia real de envío y recepción.
     🎯 Enfoque Preciso de Últimos Mensajes: Apertura directa en el punto más reciente de la conversación con 0 ms de retraso sin saltos hacia mensajes anteriores.
+    💟 Motor Nativo de Stickers WhatsApp: Compatibilidad bidireccional completa (envío y recepción) con Baileys y Evolution API, visualización flotante transparente de 200px y persistencia confiable en disco.
+    🎬 Visor Cinemático y Proporcional de Medios: Reproducción y visualización elegante de fotos, videos, GIFs animados y stickers sin distorsión de formato, con barra de acciones rápidas, botón de descarga y cierre intuitivo.
 
 1. Panel de Monitoreo
     📊 Gráficos en Tiempo Real: Visualización de las métricas más importantes de tu plataforma.
