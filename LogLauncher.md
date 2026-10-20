@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.9! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.10! 🚀
 ¡Gracias por confiar en Clezapp!
 Estás utilizando la versión PRO de nuestra plataforma. 🎯
 Con Clezapp PRO disfrutas de todas las funciones esenciales para organizar, gestionar y hacer crecer tu día a día.
@@ -37,6 +37,7 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🟨 Bloqueo de Paginación en Carga Inicial (isInitialLoad): Protección del detector de desplazamiento superior en MessagesList; previene la solicitud accidental de páginas previas durante la apertura del chat, activando la paginación de mensajes antiguos únicamente cuando el operador hace scroll intencional hacia arriba.
     🟧 Visualización y Soporte de Stickers WhatsApp (Baileys y Evolution API): Corrección crítica en la descarga y guardado de stickers entrantes resolviendo el fallo de DNS de WhatsApp (a.whatsapp.net a mmg.whatsapp.net); integración de envío de stickers WebP vía endpoint nativo /message/sendSticker en Evolution API y buffer nativo en Baileys; ajuste de proporción a 200px × 200px con renderizado transparente (sin burbuja de chat ni bordes) y recuperación de stickers históricos corruptos.
     🟨 Visor Multimedia Proporcional Unificado (Material-UI Dialog): Sustitución del visor invasivo de pantalla completa (react-modal-image) por un modal centrado con proporciones nativas (object-fit: contain, max 88vw x 82vh) y fondo desenfocado; acotamiento de videos y GIFs en burbujas de chat y mensajes citados a dimensiones controladas (max 320x240px) para evitar desbordes de pantalla en resoluciones altas.
+    🟧 Blindaje de Deshabilitar Chatbot (disableBot / Atención 100% Humana): Inclusión de atributo disableBot en ShowTicketService y ShowTicketFromUUIDService que corregía la omisión del parámetro en la resolución de tickets; anulación total de integraciones de fila (Typebot, N8N, Webhook, Dialogflow), prompts de IA (OpenAI/DeepSeek), submenús de opciones y FlowBuilder para contactos con bot desactivado; supresión absoluta de saludos de bienvenida de fila o canal (Opción B: silencio total), transferencias automáticas y mensajes de despedida o calificación al cerrar el ticket.
 
 ✨ NUEVAS FUNCIONES
 🔧 INGENIERÍA INVERSA
@@ -54,6 +55,7 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🎯 Enfoque Preciso de Últimos Mensajes: Apertura directa en el punto más reciente de la conversación con 0 ms de retraso sin saltos hacia mensajes anteriores.
     💟 Motor Nativo de Stickers WhatsApp: Compatibilidad bidireccional completa (envío y recepción) con Baileys y Evolution API, visualización flotante transparente de 200px y persistencia confiable en disco.
     🎬 Visor Cinemático y Proporcional de Medios: Reproducción y visualización elegante de fotos, videos, GIFs animados y stickers sin distorsión de formato, con barra de acciones rápidas, botón de descarga y cierre intuitivo.
+    🔇 Modo Silencio Absoluto y Atención 100% Humana (disableBot): Desconexión total de automatizaciones, flujos e integraciones al ingresar a cualquier fila o departamento, derivando al cliente de forma directa, limpia y silenciosa a la bandeja de operadores humanos sin despedidas ni encuestas automáticas al finalizar.
 
 1. Panel de Monitoreo
     📊 Gráficos en Tiempo Real: Visualización de las métricas más importantes de tu plataforma.
