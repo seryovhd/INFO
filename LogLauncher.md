@@ -26,6 +26,7 @@ Todo lo que necesitas para empezar, en un solo lugar. 🔥
     🟧 Blindaje de Conexión Baileys: Implementación de Keep-Alive proactivo cada 25 segundos, supresión de sincronización innecesaria de historial masivo (syncFullHistory: false) y filtrado de eventos ruidosos (@newsletter y @call) para conexiones 24/7 sin desconexiones intermitentes.
     🟨 Estabilidad y Poda de Memoria en Evolution API: Implementación de poda automática de buffers y Sets en EvolutionMonitor para prevenir saturación de memoria RAM y caídas del proceso en el servidor.
     🟧 Índices Compuestos PostgreSQL en Messages: Nueva migración 20261019203000 que añade índices compuestos de alto rendimiento (idx_messages_company_ticket_createdAt, idx_messages_company_read, idx_messages_remoteJid), acelerando la carga y navegación de chats con miles de mensajes a menos de 10ms.
+    🟥 Desconexión y Eliminación de Conexiones Baileys (Error 400 & Bad MAC): Corrección de la validación de empresa en ShowWhatsAppService y controladores que arrojaba error 400 al intentar desconectar o eliminar conexiones creadas con companyId nulo o gestionadas por SuperAdmin; reestructuración de removeWbot para expulsar inmediatamente de la memoria (sessions.splice) sesiones con llaves corruptas (Bad MAC) evitando bucles infinitos en PM2; y adición de limpieza previa en cascada en DeleteWhatsAppService (Baileys, BaileysChats, WhatsappQueue) para prevenir bloqueos por Foreign Key en PostgreSQL.
 
 ✨ NUEVAS FUNCIONES
 🔧 INGENIERÍA INVERSA
