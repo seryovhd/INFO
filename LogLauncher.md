@@ -39,6 +39,7 @@
 * 🟧 **Paginación Indexada por Cursor y Scroll Suave:** Lote optimizado a 35 mensajes con carga progresiva y loader sutil sin tirones visuales.
 * 🟧 **Blindaje y Watchdog de Conexiones:** Purga de listeners y reconexión con retroceso exponencial en Baileys, más watchdog de 30s en Evolution API.
 * 🟩 **Previsualización de Multimedia en Tickets:** Emojis y etiquetas claras en el último mensaje de cada ticket sustituyendo el guión "-".
+* 🟩 **Foco Continuo en Asignación de Tags:** El cursor permanece activo en el campo de etiquetas al escribir, seleccionar o presionar Enter, permitiendo ingresar múltiples tags seguidos sin perder el foco ni interrumpir la sincronización.
 * 🟩 **Miniaturas Ligeras ffmpeg:** Compresión a baja resolución en chat con caché inmutable y carga bajo demanda del archivo original en alta definición.
 
 ---
