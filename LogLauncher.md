@@ -1,8 +1,7 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.14! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.15! 🚀
 ¡Gracias por confiar en Clezapp! Estás utilizando la versión PRO de nuestra plataforma de atención omnicanal, diseñada para ofrecer la máxima velocidad, estabilidad y productividad para tu equipo. 🎯
 
 ✨ VENTAJAS Y VIRTUDES DE CLEZAPP PRO
-
 💎 Rendimiento Ultra-Fluido (60 FPS & 0ms Reactivity)
 * **Envío Inmediato (Optimistic UI):** Los mensajes se despachan en 0ms; el operador redacta continuamente sin pausas ni esperas de servidor.
 * **Alternancia Instantánea de Chats (0ms Ticket Switch):** Memoria en caliente que abre conversaciones previas en cero milisegundos, sin parpadeos ni pantallas en blanco.
@@ -34,7 +33,11 @@
 * **Respuestas Rápidas Inteligentes:** Búsqueda exacta y por similitud con envío directo vía atajo (ej. /hola) en modo carrusel o popup flotante estilo WhatsApp Web.
 
 📋 NOVEDADES Y MEJORAS DESTACADAS
-
+* 🟩 **Transición Fluida de Tickets y Carga Continua (0ms Seamless Switch):** Eliminación de parpadeos de esqueletos (`TicketHeaderSkeleton`) y saltos de estado al alternar entre chats; la cabecera actual se conserva suavemente durante la carga en segundo plano sin reiniciar a `#undefined` ni recargar la vista.
+* 🟩 **Sincronización Inteligente con Caché LRU Dual (ID/UUID):** Indexación polimórfica en caliente de mensajes por ID numérico y UUID, eliminando el retardo (`lag`) de sincronización con alto volumen de conversaciones.
+* 🟩 **Cancelación Automática de Peticiones Obsoletas (`AbortController`):** Descarte instantáneo de solicitudes en vuelo de mensajes y tickets al navegar rápidamente entre conversaciones, previniendo sobrecarga de red y estados de carga colgados (`loading infinito`).
+* 🟩 **Loader Sutil con Desvanecimiento `Fade`:** Animación de progreso circular centrada y con desvanecimiento gradual suave (`Fade` 250ms) en la bandeja de chat, eliminando apariciones y desapariciones bruscas.
+* 🟩 **Optimización de Renderizado en Bandeja de Tickets:** Actualizaciones por lote (`unstable_batchedUpdates`) y referencias estables en filtros de tickets para evitar re-renderizados innecesarios ante ráfagas de eventos de WebSocket.
 * 🟩 **Cabecera Colapsable y Barra Ultra-Compacta en Tickets:** Pestaña interactiva con icono Chevron centrada sobre el borde del módulo de contacto y etiquetas, permitiendo alternar entre vista completa y barra ultra-compacta (46px) para maximizar el área de lectura en pantalla con transiciones suaves `<Collapse>` y memoria en `localStorage`.
 * 🟩 **Etiqueta Roja "NO-BOT" en Tickets:** Identificador visual en vivo para contactos con chatbot deshabilitado, ubicado junto al badge de última interacción y optimizado en `React.memo` para actualización instantánea vía WebSockets.
 * 🟩 **Control de Visibilidad de Etiquetas (/settings):** Parametrización en panel de opciones para mostrar u ocultar la etiqueta de última interacción, canal de conexión, nombre de agente asignado y tags de clasificación.
@@ -48,7 +51,6 @@
 * 🟩 **Miniaturas Ligeras ffmpeg:** Compresión a baja resolución en chat con caché inmutable y carga bajo demanda del archivo original en alta definición.
 
 🛠️ HERRAMIENTAS Y MÓDULOS INTEGRADOS
-
 * 📊 **Panel de Monitoreo:** Métricas de atención, gráficos de rendimiento y reportes en tiempo real.
 * 🗂️ **Gestor de Tickets y Kanban:** Organización visual por estados (Atendiendo, Esperando, Atendidos), filas y etiquetas personalizadas.
 * 💬 **Respuestas Rápidas Flotantes:** Popup interactivo tipo WhatsApp Web para selección rápida.
