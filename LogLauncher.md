@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.15! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.16! 🚀
 ¡Gracias por confiar en Clezapp! Estás utilizando la versión PRO de nuestra plataforma de atención omnicanal, diseñada para ofrecer la máxima velocidad, estabilidad y productividad para tu equipo. 🎯
 
 ✨ VENTAJAS Y VIRTUDES DE CLEZAPP PRO
@@ -33,6 +33,7 @@
 * **Respuestas Rápidas Inteligentes:** Búsqueda exacta y por similitud con envío directo vía atajo (ej. /hola) en modo carrusel o popup flotante estilo WhatsApp Web.
 
 📋 NOVEDADES Y MEJORAS DESTACADAS
+* 🟩 **Blindaje Integral y Resiliencia en Envío de Tickets (PostgreSQL 22P02 Eliminado - v3.7.16):** Sanitización y validación estricta en el envío de mensajes, notas de voz, adjuntos y respuestas rápidas. Se incorporó protección bidireccional (UUID/ID numérico) en `ShowTicketService`, `MessageController`, `MessageHubController` y en el cliente (`MessageInputCustom` y `Ticket`), impidiendo errores por identificador `undefined` ante aperturas y transiciones rápidas de chat sin requerir recargar la página (F5).
 * 🟩 **Transición Fluida de Tickets y Carga Continua (0ms Seamless Switch):** Eliminación de parpadeos de esqueletos (`TicketHeaderSkeleton`) y saltos de estado al alternar entre chats; la cabecera actual se conserva suavemente durante la carga en segundo plano sin reiniciar a `#undefined` ni recargar la vista.
 * 🟩 **Sincronización Inteligente con Caché LRU Dual (ID/UUID):** Indexación polimórfica en caliente de mensajes por ID numérico y UUID, eliminando el retardo (`lag`) de sincronización con alto volumen de conversaciones.
 * 🟩 **Cancelación Automática de Peticiones Obsoletas (`AbortController`):** Descarte instantáneo de solicitudes en vuelo de mensajes y tickets al navegar rápidamente entre conversaciones, previniendo sobrecarga de red y estados de carga colgados (`loading infinito`).
