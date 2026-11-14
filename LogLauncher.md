@@ -1,8 +1,9 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.18! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.19! 🚀
 ¡Gracias por confiar en Clezapp! Estás utilizando la versión PRO de nuestra plataforma de atención omnicanal, diseñada para ofrecer la máxima velocidad, estabilidad y productividad para tu equipo. 🎯
 
 ✨ VENTAJAS Y VIRTUDES DE CLEZAPP PRO
 💎 Rendimiento Ultra-Fluido (60 FPS & 0ms Reactivity)
+* **Resolución Unificada de Privacidad LID / JID (Cero Conversaciones Duplicadas):** Motor inteligente de identidad para WhatsApp que resuelve identificadores de privacidad (@lid) al número de teléfono real tanto en conexiones directas de Baileys como en webhooks de Evolution API. Auto-fusión en segundo plano de historiales y mensajes huérfanos con notificación en tiempo real sin intervención de los asesores.
 * **Envío Inmediato (Optimistic UI):** Los mensajes se despachan en 0ms; el operador redacta continuamente sin pausas ni esperas de servidor.
 * **Alternancia Instantánea de Chats (SWR 0ms Ticket Switch):** Memoria en caliente que renderiza contactos, cabeceras, etiquetas y mensajes previos en cero milisegundos, eliminando pantallas de "cargando..." y parpadeos al alternar rápidamente entre chats, sin afectar la suavidad ni el desplazamiento original.
 * **Elevación de Ticket en Tiempo Real (0ms Lift):** El chat salta automáticamente al primer lugar de la bandeja apenas llega o se envía un mensaje.
@@ -37,6 +38,7 @@
 * **Privacidad de Archivos:** Ocultación del nombre técnico de archivos adjuntos en el chat del receptor.
 
 📋 NOVEDADES Y MEJORAS DESTACADAS
+* 🟩 **Resolución Automática Unificada de Identidad LID/JID y Auto-Fusión (v3.7.19):** Implementación integral del motor de identidades para WhatsApp, compatible tanto con conexiones Baileys como con Evolution API. Los mensajes entrantes con identificadores de privacidad (@lid) se analizan en 0ms y se resuelven contra metadatos del paquete, diccionario persistente en base de datos y almacén de sesiones. Si existe una conversación o contacto provisional generado previamente por un LID huérfano, el sistema realiza una fusión automática en segundo plano: traspasa mensajes, tickets y etiquetas al contacto con el número real y actualiza la vista de los asesores por WebSockets en vivo, erradicando chats duplicados sin necesidad de intervención manual.
 * 🟩 **Transición Instantánea sin Bloqueos y Blindaje de Sockets en Vivo (v3.7.18):** Implementación de memoria en caliente para datos de tickets. Al alternar entre conversaciones, los datos del chat se muestran inmediatamente (0ms) sin activar el spinner de carga bloqueante ("cargando..."), revalidando en segundo plano de manera transparente y sin alterar la suavidad ni el desplazamiento visual. Se optimizó el heartbeat de sockets a 10s con reconexión progresiva en 1s ante microcortes, se flexibilizó el acceso a salas en tiempo real para que operadores y supervisores en colas o tickets pendientes reciban eventos en vivo sin restricciones, y se securizó la confirmación de mensajes salientes.
 * 🟩 **Buscadores de Alta Precisión en Respuestas Rápidas y Etiquetas (v3.7.18):** Reorientación integral del buscador en respuestas rápidas para coincidir exclusivamente con la columna de acceso directo, admitiendo términos con o sin barra diagonal inicial y aplicando ordenamiento algorítmico por relevancia (coincidencia exacta primero, luego inicios y finalmente contenidos). En etiquetas, se implementó búsqueda insensible a mayúsculas y minúsculas en base de datos, estabilizando el cálculo de agrupamiento y conteo.
 * 🟩 **Sistema de Borradores Persistentes y Reactivos en Vivo (WhatsApp & Telegram Style - v3.7.17):** Guardado automático en memoria local de textos redactados no enviados al cambiar de conversación o recargar la página (F5). En la bandeja lateral, el chat muestra en verde WhatsApp el prefijo `Borrador: [texto]` sin retrasos ni llamadas al servidor. Al regresar a la conversación, el mensaje se restaura de inmediato en la caja de texto con foco activo, depurándose automáticamente al enviarse.
@@ -50,7 +52,7 @@
 * 🟩 **Etiqueta Roja "NO-BOT" en Tickets:** Identificador visual en vivo para contactos con chatbot deshabilitado, optimizado para actualización instantánea vía WebSockets.
 * 🟩 **Control de Visibilidad de Etiquetas en Ajustes:** Parametrización en panel de opciones para mostrar u ocultar la etiqueta de última interacción, canal de conexión, nombre de agente asignado y tags de clasificación.
 * 🟩 **Resolución Robusta de Mensajes por UUID:** Soporte bidireccional para identificadores numéricos y UUID, agilizando la apertura y consulta de conversaciones.
-* 🟩 **Auditoría de Migraciones y Nuevas Empresas:** 188 migraciones verificadas y sincronización automática de valores por defecto para garantizar instalaciones desde cero 100% estables.
+* 🟩 **Auditoría Integral de Migraciones y Nuevas Instalaciones:** 190 migraciones verificadas y sincronizadas al 100% entre TypeScript y distribución compilada, con métodos de reversión y control de integridad para garantizar despliegues limpios y actualizaciones continuas sin errores.
 * 🟧 **Persistencia de Archivos Citados:** Resolución garantizada de rutas relacionales para archivos adjuntos citados, evitando mensajes de error al recargar la página.
 * 🟧 **Paginación Indexada por Cursor y Scroll Suave:** Lote optimizado a 35 mensajes con carga progresiva y navegación fluida sin tirones visuales.
 * 🟧 **Blindaje y Monitoreo de Conexiones:** Purga de escuchadores y reconexión con retroceso exponencial en WhatsApp, optimizando el rendimiento del servidor.
