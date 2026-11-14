@@ -1,16 +1,17 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.17! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.18! 🚀
 ¡Gracias por confiar en Clezapp! Estás utilizando la versión PRO de nuestra plataforma de atención omnicanal, diseñada para ofrecer la máxima velocidad, estabilidad y productividad para tu equipo. 🎯
 
 ✨ VENTAJAS Y VIRTUDES DE CLEZAPP PRO
 💎 Rendimiento Ultra-Fluido (60 FPS & 0ms Reactivity)
 * **Envío Inmediato (Optimistic UI):** Los mensajes se despachan en 0ms; el operador redacta continuamente sin pausas ni esperas de servidor.
-* **Alternancia Instantánea de Chats (0ms Ticket Switch):** Memoria en caliente que abre conversaciones previas en cero milisegundos, sin parpadeos ni pantallas en blanco.
+* **Alternancia Instantánea de Chats (SWR 0ms Ticket Switch):** Arquitectura Stale-While-Revalidate (`recentTicketsDataCache` y `recentMessagesCache`) que renderiza contactos, cabeceras, etiquetas y mensajes previos en cero milisegundos, eliminando pantallas de "cargando..." y parpadeos al alternar rápidamente entre chats, sin afectar la suavidad ni el desplazamiento original.
 * **Elevación de Ticket en Tiempo Real (0ms Lift):** El chat salta automáticamente al primer lugar de la bandeja apenas llega o se envía un mensaje.
 * **Arquitectura Asíncrona (Code-Splitting):** Carga modular bajo demanda que reduce el peso inicial en más del 36%, optimizando el arranque en móviles y escritorio.
 
 🛡️ Estabilidad 24/7 y Blindaje Anti-Caídas
 * **Blindaje de Conexiones WhatsApp (Baileys & Evolution API):** Keep-Alive proactivo cada 20-25s, purga total de memoria ante sesiones cerradas y monitorización pasiva (watchdog) de 30s que libera hasta un 90% de CPU en el servidor.
-* **Reconexión Progresiva Inteligente:** Auto-recuperación con retroceso exponencial ante microcortes de red, sin bucles de error ni fugas de memoria.
+* **Heartbeat Ultra-Rápido y Detección de Caídas (Socket.IO):** Reducción del ciclo de detección de microcortes de 36s a 10s (`pingTimeout/pingInterval: 10000`) con reconexión progresiva en 1 segundo y tolerancia avanzada a suspensión de pestañas en el navegador.
+* **Suscripción Garantizada en Tiempo Real (joinChatBox):** Recepción fluida de mensajes entrantes y salientes en tiempo real para administradores, supervisores y operadores asignados a colas o tickets pendientes, sin bloqueos de sala.
 * **Protección Anti-Saturación de Grupos:** Descarte inmediato en paso 0 de mensajes de grupos masivos con caché en memoria, evitando sobrecargar RAM y CPU.
 
 📦 Gestión Multimedia Inteligente y Ultraligera
@@ -21,20 +22,23 @@
 
 ⚡ Base de Datos de Alta Eficiencia (O(1))
 * **Paginación Continua por Cursor:** Navegación por fecha e identificador (beforeCreatedAt / beforeId) en lugar de saltos pesados de OFFSET; navegación fluida en historiales con miles de mensajes.
+* **Consultas Insensibles a Mayúsculas/Minúsculas:** Búsqueda rápida optimizada con funciones `LOWER()` en PostgreSQL para etiquetas y respuestas rápidas.
 * **Índices Compuestos de Alto Desempeño:** Consultas y filtros acelerados en PostgreSQL ejecutados en menos de 10ms.
 * **Resolución Polimórfica UUID/ID:** Consultas de mensajes optimizadas para soportar identificadores numéricos y UUID sin fallos de conversión de tipos.
 
 🔇 Control Operativo y Productividad
 * **Borradores Persistentes en Chats (Drafts 0ms):** Preservación automática de textos no enviados al cambiar de conversación o recargar la página (F5), con identificación visual en verde `Borrador: [texto]` en la bandeja de tickets estilo WhatsApp Web y Telegram.
+* **Búsqueda Inteligente por Relevancia en Respuestas Rápidas:** Algoritmo de coincidencia estricta con la columna de acceso directo (`Exact Match` -> `Starts-With` -> `Contains`) con soporte nativo para comandos con barra diagonal (ej. `/netflix` o `netflix`).
+* **Buscador Insensible en Etiquetas (/tags):** Localización inmediata de tags sin distinción entre mayúsculas y minúsculas con cálculo de paginación blindado.
 * **Cabecera Colapsable y Barra Ultra-Compacta:** Pestaña deslizante con Chevron (Up/Down) en cabecera de tickets para alternar entre vista completa y modo compacto (46px), maximizando el espacio de lectura.
 * **Identificador Visual NO-BOT:** Etiqueta roja en bandeja para detectar al instante los contactos con chatbot desactivado.
 * **Control Flexible de Etiquetas en Ajustes:** Opciones en `/settings` para mostrar u ocultar selectivamente etiquetas de conexión, agentes, tags y última interacción.
 * **Modo Silencio Absoluto (disableBot):** Desconexión integral de bots, respuestas automáticas y encuestas de salida para una atención 100% humana y limpia.
 * **Privacidad de Archivos:** Ocultación del nombre técnico de archivos adjuntos en el chat del receptor.
-* **Respuestas Rápidas Inteligentes:** Búsqueda exacta y por similitud con envío directo vía atajo (ej. /hola) en modo carrusel o popup flotante estilo WhatsApp Web.
 
 📋 NOVEDADES Y MEJORAS DESTACADAS
-* 🟩 **Buscadores Reactivos en Respuestas Rápidas (/quick-messages) y Etiquetas (/tags) (v3.7.17):** Corrección integral del sistema de búsqueda en ambos módulos. En `/quick-messages`, se reorientó la búsqueda para que coincida estricta y prioritariamente con la columna de **Acceso directo** (`shortcode`), admitiendo búsquedas con o sin barra inicial (`/netflix` o `netflix`) y aplicando ordenamiento por relevancia (`Exact Match` -> `Starts-With` -> `Contains`). En el cliente se implementó `SET_QUICKMESSAGES` para garantizar que la tabla refleje fielmente el orden y los resultados de la consulta sin elementos residuales. En `/tags`, se solucionó la sensibilidad a mayúsculas de PostgreSQL reemplazando `LIKE` por comparación insensible `LOWER()`, normalizando la ruta de consulta y securizando la respuesta agrupada para un filtrado exacto y en tiempo real.
+* 🟩 **Transición SWR sin Bloqueos y Blindaje de Sockets en Vivo (v3.7.18):** Implementación de la caché en memoria `recentTicketsDataCache` en [Ticket/index.js](file:///d:/PROYECTOS/PHP/Clezapp/Clezapp-pro/frontend/src/components/Ticket/index.js). Al alternar entre conversaciones, los datos del ticket se muestran inmediatamente (0ms) sin activar el spinner de carga bloqueante, revalidando en segundo plano de manera transparente. En el backend se ajustó el heartbeat de Socket.IO a 10s (`pingTimeout/pingInterval`) con reconexión progresiva en 1s, se flexibilizó `joinChatBox` en [libs/socket.ts](file:///d:/PROYECTOS/PHP/Clezapp/Clezapp-pro/backend/src/libs/socket.ts) para que operadores y supervisores en colas y tickets pendientes reciban eventos en vivo, y se aseguró la emisión multicanal en `CreateMessageService`.
+* 🟩 **Buscadores de Alta Precisión en Respuestas Rápidas (/quick-messages) y Etiquetas (/tags) (v3.7.18):** Reorientación integral del buscador en `/quick-messages` para coincidir exclusivamente con la columna de Acceso directo (`shortcode`), sanitizando barras diagonales (`/`) y ordenando por relevancia algorítmica (`Exact Match` -> `Starts-With` -> `Contains`). En `/tags`, se solucionó la sensibilidad a mayúsculas de PostgreSQL mediante comparación `LOWER()`, estabilizando el cálculo de agrupamiento y conteo.
 * 🟩 **Sistema de Borradores Persistentes y Reactivos en Vivo (WhatsApp & Telegram Style - v3.7.17):** Implementación integral del gestor de borradores (`ticketDrafts.js`) persistido en `localStorage` con sincronización reactiva por eventos (`clezapp_draft_change`). Al redactar en `MessageInputCustom` y alternar entre conversaciones, el ticket muestra en la bandeja lateral el prefijo en verde WhatsApp `#25D366` (`Borrador: [texto]`) sin parpadeos ni peticiones al servidor. Al volver al chat, el texto se restaura íntegro en el input con foco activo. El borrador se depura automáticamente al enviar el mensaje o subir multimedia, y se recupera de inmediato si la red falla.
 * 🟩 **Blindaje Integral y Resiliencia en Envío de Tickets (PostgreSQL 22P02 Eliminado - v3.7.16):** Sanitización y validación estricta en el envío de mensajes, notas de voz, adjuntos y respuestas rápidas. Se incorporó protección bidireccional (UUID/ID numérico) en `ShowTicketService`, `MessageController`, `MessageHubController` y en el cliente (`MessageInputCustom` y `Ticket`), impidiendo errores por identificador `undefined` ante aperturas y transiciones rápidas de chat sin requerir recargar la página (F5).
 * 🟩 **Transición Fluida de Tickets y Carga Continua (0ms Seamless Switch):** Eliminación de parpadeos de esqueletos (`TicketHeaderSkeleton`) y saltos de estado al alternar entre chats; la cabecera actual se conserva suavemente durante la carga en segundo plano sin reiniciar a `#undefined` ni recargar la vista.
