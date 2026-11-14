@@ -1,4 +1,4 @@
-🎉 ¡Bienvenido a Clezapp PRO 3.7.16! 🚀
+🎉 ¡Bienvenido a Clezapp PRO 3.7.17! 🚀
 ¡Gracias por confiar en Clezapp! Estás utilizando la versión PRO de nuestra plataforma de atención omnicanal, diseñada para ofrecer la máxima velocidad, estabilidad y productividad para tu equipo. 🎯
 
 ✨ VENTAJAS Y VIRTUDES DE CLEZAPP PRO
@@ -25,6 +25,7 @@
 * **Resolución Polimórfica UUID/ID:** Consultas de mensajes optimizadas para soportar identificadores numéricos y UUID sin fallos de conversión de tipos.
 
 🔇 Control Operativo y Productividad
+* **Borradores Persistentes en Chats (Drafts 0ms):** Preservación automática de textos no enviados al cambiar de conversación o recargar la página (F5), con identificación visual en verde `Borrador: [texto]` en la bandeja de tickets estilo WhatsApp Web y Telegram.
 * **Cabecera Colapsable y Barra Ultra-Compacta:** Pestaña deslizante con Chevron (Up/Down) en cabecera de tickets para alternar entre vista completa y modo compacto (46px), maximizando el espacio de lectura.
 * **Identificador Visual NO-BOT:** Etiqueta roja en bandeja para detectar al instante los contactos con chatbot desactivado.
 * **Control Flexible de Etiquetas en Ajustes:** Opciones en `/settings` para mostrar u ocultar selectivamente etiquetas de conexión, agentes, tags y última interacción.
@@ -33,6 +34,8 @@
 * **Respuestas Rápidas Inteligentes:** Búsqueda exacta y por similitud con envío directo vía atajo (ej. /hola) en modo carrusel o popup flotante estilo WhatsApp Web.
 
 📋 NOVEDADES Y MEJORAS DESTACADAS
+* 🟩 **Buscadores Reactivos en Respuestas Rápidas (/quick-messages) y Etiquetas (/tags) (v3.7.17):** Corrección integral del sistema de búsqueda en ambos módulos. En `/quick-messages`, se reorientó la búsqueda para que coincida estricta y prioritariamente con la columna de **Acceso directo** (`shortcode`), admitiendo búsquedas con o sin barra inicial (`/netflix` o `netflix`) y aplicando ordenamiento por relevancia (`Exact Match` -> `Starts-With` -> `Contains`). En el cliente se implementó `SET_QUICKMESSAGES` para garantizar que la tabla refleje fielmente el orden y los resultados de la consulta sin elementos residuales. En `/tags`, se solucionó la sensibilidad a mayúsculas de PostgreSQL reemplazando `LIKE` por comparación insensible `LOWER()`, normalizando la ruta de consulta y securizando la respuesta agrupada para un filtrado exacto y en tiempo real.
+* 🟩 **Sistema de Borradores Persistentes y Reactivos en Vivo (WhatsApp & Telegram Style - v3.7.17):** Implementación integral del gestor de borradores (`ticketDrafts.js`) persistido en `localStorage` con sincronización reactiva por eventos (`clezapp_draft_change`). Al redactar en `MessageInputCustom` y alternar entre conversaciones, el ticket muestra en la bandeja lateral el prefijo en verde WhatsApp `#25D366` (`Borrador: [texto]`) sin parpadeos ni peticiones al servidor. Al volver al chat, el texto se restaura íntegro en el input con foco activo. El borrador se depura automáticamente al enviar el mensaje o subir multimedia, y se recupera de inmediato si la red falla.
 * 🟩 **Blindaje Integral y Resiliencia en Envío de Tickets (PostgreSQL 22P02 Eliminado - v3.7.16):** Sanitización y validación estricta en el envío de mensajes, notas de voz, adjuntos y respuestas rápidas. Se incorporó protección bidireccional (UUID/ID numérico) en `ShowTicketService`, `MessageController`, `MessageHubController` y en el cliente (`MessageInputCustom` y `Ticket`), impidiendo errores por identificador `undefined` ante aperturas y transiciones rápidas de chat sin requerir recargar la página (F5).
 * 🟩 **Transición Fluida de Tickets y Carga Continua (0ms Seamless Switch):** Eliminación de parpadeos de esqueletos (`TicketHeaderSkeleton`) y saltos de estado al alternar entre chats; la cabecera actual se conserva suavemente durante la carga en segundo plano sin reiniciar a `#undefined` ni recargar la vista.
 * 🟩 **Sincronización Inteligente con Caché LRU Dual (ID/UUID):** Indexación polimórfica en caliente de mensajes por ID numérico y UUID, eliminando el retardo (`lag`) de sincronización con alto volumen de conversaciones.
